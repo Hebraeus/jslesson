@@ -1,80 +1,69 @@
-let a = 228;
-let b = '100500';
-let c = false;
+$(function(){
+	let popup = function(btn, close, target){
+					$(btn).on('click', function(){
+						$(target).addClass('open');
+						$('body').addClass('scroll-lock');
+					});
 
-if (b == 100500 || b === 100500 || a > 100500) {
-	alert('Да, это наше число');
-}
+					$(close).on('click', function(){
+						$(target).removeClass('open');
+						$('body').removeClass('scroll-lock');
+					});
+				},
 
-if (b == 100500 && a > 0 && c == false) {
-	alert('То, что нам нужно');
-}
+		listSlideDown = function(btn){
+			$( btn ).hover(
+			  function() {
 
-if ((c && b == 100500) || a > 227) {
-	alert('Условие верно');
-}
+			    $( this ).closest('.project-item__text').find('.project-item__hidden-list').slideDown();
+			    $( this ).slideUp();
 
-if (c !== true || (b === 100500 && c)) {
-	alert('Правда');
-}
+			  }, function() {
 
-// дз возвезение в степень
+			    console.log();
 
-function count(start, end, step, reverse = 0) {
-	if (reverse === 0) {
-		if (start < end) {
-			for(let i = start; i < end; i+=step){			
-				console.log(i)
-				if (i > 1000 || i < -1000) {
-					break;
-				}
-			}
-		}	else {
-			for(let i = start; i > end; i-=step){			
-				console.log(i)
-				if (i > 1000 || i < -1000) {
-					break;
-				}
-			}
-		}
-			
-	} else {
-		if (end > start) {
-			for(let i = end; i > start; i-=step){
-				console.log(i)
-				if (i > 1000 || i < -1000) {
-					break;
-				}
-			}
-		} else {
-			for(let i = end; i < start; i+=step){
-				console.log(i)
-				if (i > 1000 || i < -1000) {
-					break;
-				}
-			}
-		}	
+			  }
+			);
+		};
+
+		
+	listSlideDown('.project-item__button .js-more-btn');
+	popup('.burger', '.js-close', '.popup-menu');
+	popup('.js-popup-btn', '.js-close', '.js-popup-form');
+	popup('.js-popup-button', '.js-close', '.js-popup-form-more');
+	popup('.popup-confid-btn', '.js-close', '.popup-confident');
+	popup('.popup-privacy-btn', '.js-close', '.popup-privacy-wrap');
+
+	$('.scroll-to-top-btn').on('click', function(){
+		$("html, body").animate({ scrollTop: 0 }, 500);
+    });
+
+	function addClassOnScroll() {
+	  var elements = document.querySelectorAll(".show-elem");
+	  var windowHeight = window.innerHeight;
+	  for (var i = 0; i < elements.length; i++) {
+	    var position = elements[i].getBoundingClientRect().top;
+	    if (position < windowHeight) {
+	      elements[i].classList.add("visible");
+	    }
+	  }
 	}
-}
 
-count(1, -10, 2, 1);
+	
+	window.addEventListener("scroll", addClassOnScroll);
 
+	$('.header__menu-bot-nav a').on('click', function() {
+    let href = $(this).attr('href');
+    
+    $('html, body').animate({
+      scrollTop: $(href).offset().top - 50
+    }, 370,
+    function(){
+      $('.open').removeClass('open');
+      $('body').removeClass('scroll-lock');
+    });
+    return false;
+  });
 
-
-function calcExp(number, exponent) {
-	let result = number**exponent;
-	console.log(result);
-}
-
-calcExp(2, 3);
-
-
-function calcExponent(number, exponent) {
-	let a = number;	
-	for (let i = 0; i < exponent - 1; i++) {		
-		a*=number;		
-	}
-	console.log(a);
-}
-
-calcExponent (2, 4);
+	
+});
