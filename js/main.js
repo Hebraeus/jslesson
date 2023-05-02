@@ -12,15 +12,10 @@ $(function(){
 				},
 
 		listSlideDown = function(btn){
-			$( btn ).hover(
-			  function() {
+			$( btn ).on('click', function() {
 
 			    $( this ).closest('.project-item__text').find('.project-item__hidden-list').slideDown();
 			    $( this ).slideUp();
-
-			  }, function() {
-
-			    console.log();
 
 			  }
 			);
@@ -48,11 +43,10 @@ $(function(){
 	    }
 	  }
 	}
-
 	
 	window.addEventListener("scroll", addClassOnScroll);
 
-	$('.header__menu-bot-nav a').on('click', function() {
+	$('.header__menu-bot-nav a, .popup-in ul.navigation__list li a').on('click', function() {
     let href = $(this).attr('href');
     
     $('html, body').animate({
@@ -64,6 +58,5 @@ $(function(){
     });
     return false;
   });
-
 	
 });
