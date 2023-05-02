@@ -1014,8 +1014,7 @@ textarea:focus {
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
-    display: flex;
+    left: 0;   
     justify-content: center;
     align-items: center;
     display: none;
@@ -1874,7 +1873,8 @@ ul.navigation__list
 
 /**/
 
-.popup-main-wrap.open {
+.js-popup-form-more.open,
+.js-popup-form.open {
 	display: flex;
 }
 
