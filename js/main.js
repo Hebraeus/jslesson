@@ -26,8 +26,8 @@ $(function(){
 	popup('.burger', '.js-close', '.popup-menu');
 	popup('.js-popup-btn', '.js-close', '.js-popup-form');
 	popup('.js-popup-button', '.js-close', '.js-popup-form-more');
-	popup('.popup-confid-btn', '.js-close', '.popup-confident');
-	popup('.popup-privacy-btn', '.js-close', '.popup-privacy-wrap');
+	popup('.popup-confid-btn', '.js-close-more', '.popup-confident');
+	popup('.popup-privacy-btn', '.js-close-more', '.popup-privacy-wrap');
 
 	$('.scroll-to-top-btn').on('click', function(){
 		$("html, body").animate({ scrollTop: 0 }, 500);
@@ -58,5 +58,19 @@ $(function(){
     });
     return false;
   });
+
+   var h_hght = 146; // высота шапки
+   var h_mrg = 0;     // отступ когда шапка уже не видна
+   $(function(){
+    $(window).scroll(function(){
+       var top = $(this).scrollTop();
+       var elem = $('.header__menu-bot');
+       if (top+h_mrg < h_hght) {
+        elem.css('top', (h_hght-top));
+       } else {
+        elem.css('top', h_mrg);
+       }
+     });
+   });
 	
 });
