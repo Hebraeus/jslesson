@@ -729,7 +729,7 @@ textarea:focus {
 }
 
 .present__pic img {
-	width: 100%;
+	max-width: 100%;
 }
 
 .present__pic-hidden {
