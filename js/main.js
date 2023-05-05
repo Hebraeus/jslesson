@@ -79,7 +79,7 @@ $(function(){
 		  $('.step-item__arrow').each(function(){
 		    let currentOffsetTop = $(this).offset().top;
 
-		    if (scroll+200 > currentOffsetTop) {
+		    if (scroll+450 > currentOffsetTop) {
 		      $(this).addClass('hidden-color');
 		    } else {
 		      $(this).removeClass('hidden-color');
