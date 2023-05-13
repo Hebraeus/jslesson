@@ -1917,13 +1917,13 @@ ul.navigation__list
 	}
 
 	.title-h2 {
-		font-size: 19px;
-    	line-height: 35px;
+		font-size: 25px;
+    		line-height: 35px;
 	}
 
 	.header__main-list li {
 		font-size: 19px;
-    	line-height: 20px;
+    		line-height: 20px;
 	}
 
 	.header__main-list li:before {
